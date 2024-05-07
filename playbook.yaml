@@ -1,0 +1,16 @@
+---
+name: Update WordPress plugins and themes
+  hosts: 13.233.182.22
+  become: yes
+
+  tasks:
+    - name: Update WordPress plugins
+      shell: wp plugin update --all --allow-root
+      args:
+        chdir: /var/www/html
+
+    - name: Update WordPress themes
+      shell: wp theme update --all --allow-root
+      args:
+        chdir: /var/www/html
+
